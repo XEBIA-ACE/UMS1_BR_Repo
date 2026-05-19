@@ -1,0 +1,34 @@
+# User Management Service – Implementation Task List
+
+- [ ] Create User entity/model (User.java) with all required fields and invariants
+- [ ] Implement PostgreSQL user table(s) with migrations for profile, preferences, and audit fields
+- [ ] Implement password hashing and validation logic (e.g., bcrypt/argon2)
+- [ ] Develop REST controllers for:
+  - [ ] POST /auth/login
+  - [ ] POST /auth/refresh
+  - [ ] POST /auth/mfa/enroll
+  - [ ] POST /auth/logout
+  - [ ] POST /users (registration)
+  - [ ] GET /users/{user_id}
+  - [ ] PUT /users/{user_id}
+  - [ ] PATCH /users/{user_id}/preferences
+  - [ ] DELETE /users/{user_id}
+- [ ] Enforce field-level input validation and error handling on all endpoints
+- [ ] Integrate with OAuth2/OIDC (Spring Security config, PKCE, JWT)
+- [ ] Store session/token metadata in Redis, implement session lifecycle logic
+- [ ] Implement RBAC checks for all endpoints; expose admin-only routes as needed
+- [ ] Add MFA enrollment and validation service
+- [ ] Add audit logging for all sensitive operations (ELK, field masking)
+- [ ] Add structured logging and Prometheus metrics for all endpoints
+- [ ] Implement rate limiting and brute-force protection (API Gateway/Redis integration)
+- [ ] Implement uniqueness/email constraints at DB and service level
+- [ ] Develop unit/integration tests for all API scenarios
+- [ ] Configure API error responses in RFC 7807/problem+json format
+- [ ] Add OpenAPI doc annotations for all public endpoints
+- [ ] Set up monitoring dashboards for login, signup, error rates, session expiries
+- [ ] Harden Dockerfile, run security scan (Snyk/Trivy)
+- [ ] Enable CI/CD integration (tests, build, deploy)
+- [ ] Confirm data backup and recovery plans for user table
+- [ ] Finalize configuration for session TTL and max concurrent sessions (TODO)
+- [ ] Clarify RBAC roles/scopes with domain security expert (TODO)
+- [ ] Review and update OpenAPI spec to match implemented models and response shapes (TODO)
